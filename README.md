@@ -97,7 +97,7 @@ VOLUME /tmp
 ARG JAR_FILE=target/demodock-springboot.jar
 COPY ${JAR_FILE} docker-springboot.jar
 WORKDIR docker-springboot
-EXPOSE 8080
+EXPOSE 8083
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/docker-springboot.jar"]
 ```
 
@@ -115,7 +115,7 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
     upstream spring-boot {
-        server docker-springboot:8080;
+        server docker-springboot:8083;
     }
     server {
         listen 80;
@@ -157,7 +157,7 @@ services:
     container_name: springboot_test
     build: .
     expose:
-      - 8080 
+      - 8083 
 ```
 
 + docker 이미지 올리기
