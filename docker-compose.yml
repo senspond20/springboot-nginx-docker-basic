@@ -12,5 +12,5 @@ services:
     container_name: springboot_test
     build: .
     expose:
-      - 8080
+      - 8083
   
